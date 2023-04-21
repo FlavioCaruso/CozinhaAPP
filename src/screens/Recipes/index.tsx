@@ -1,31 +1,32 @@
 import * as React from 'react';
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
   View,
   Image,
+  FlatList,
 } from 'react-native';
+
+import {MealList} from '../../components';
 
 export default function RecipesScreen() {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1, paddingBottom: 40}}>
       <StatusBar />
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <View>
-          <Image
-            source={require('../../assets/images/banner.jpeg')}
-            resizeMode={'cover'}
-            style={{width: '100%', height: 200}}
-          />
-        </View>
-        <View style={styles.content}>
-          <Text style={styles.title}>Cozinha APP</Text>
-          <Text style={styles.subTitle}>Receitas</Text>
-        </View>
-      </ScrollView>
+      <View>
+        <Image
+          source={require('../../assets/images/banner.jpeg')}
+          resizeMode={'cover'}
+          style={{width: '100%', height: 200}}
+        />
+      </View>
+      <View style={styles.content}>
+        <Text style={styles.title}>Cozinha APP</Text>
+        <Text style={styles.subTitle}>Receitas</Text>
+        <MealList />
+      </View>
     </SafeAreaView>
   );
 }
