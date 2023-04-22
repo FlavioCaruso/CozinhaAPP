@@ -9,7 +9,7 @@ const Stack = createStackNavigator<RootStackParamList>();
 function StackRouter() {
   return (
     <Stack.Navigator
-      initialRouteName="Recipes"
+      initialRouteName="SignIn"
       screenOptions={{
         headerShown: false,
       }}>

@@ -5,17 +5,18 @@ import {Formik} from 'formik';
 import {TextButton, TextInput} from '../../components';
 
 // Hooks
-// import useSignIn from './hooks/useSignIn';
+import useSignIn from './hooks/useSignIn';
 
 export default function SignInScreen() {
-  //   const {initialValues, SignInSchema, doLogin} = useSignIn();
+  const {initialValues, SignInSchema, doLogin} = useSignIn();
 
   return (
     <>
       <StatusBar backgroundColor={styles.statusBar.backgroundColor} />
       <Formik
-        initialValues={{email: '', password: ''}}
-        onSubmit={values => console.log(values)}>
+        initialValues={initialValues}
+        validationSchema={SignInSchema}
+        onSubmit={(values, {setSubmitting}) => doLogin(values, setSubmitting)}>
         {({values, errors, handleChange, handleSubmit, isSubmitting}) => (
           <View style={styles.container}>
             <Image
